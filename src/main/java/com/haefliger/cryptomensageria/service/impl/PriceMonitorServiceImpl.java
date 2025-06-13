@@ -17,7 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Author diego-haefliger
- * Date 6/13/25
+ * Date 13/06/25
  */
 
 @Service
@@ -26,7 +26,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class PriceMonitorServiceImpl implements PriceMonitorService {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper;
     private final Map<Long, Estrategia> estrategias = new ConcurrentHashMap<>();
 
     @KafkaListener(topics = "strategy-updated", groupId = "price-monitor-group")

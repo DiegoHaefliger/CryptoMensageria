@@ -1,13 +1,12 @@
 version: '3.8'
 
 services:
+
   zookeeper:
     image: confluentinc/cp-zookeeper:7.6.0
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
-    ports:
-      - "2181:2181"
 
   kafka:
     image: confluentinc/cp-kafka:7.6.0
@@ -25,14 +24,13 @@ services:
 
   kafka-ui:
     image: provectuslabs/kafka-ui:latest
-    depends_on:
-      - kafka
+    container_name: kafka-ui
     ports:
-      - "8091:8091"
+      - "8080:8091"
     environment:
       KAFKA_CLUSTERS_0_NAME: local
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
 
-# Observações:
-# - Este compose sobe Zookeeper, Kafka e uma interface web para gerenciar tópicos/consumidores (Kafka UI).
-# - Os tópicos strategy-updated, price-updated e alert podem ser criados via Kafka UI (localhost:8091) ou automaticamente pelo seu produtor.
+networks:
+  default:
+    driver: bridge

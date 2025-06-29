@@ -20,7 +20,7 @@ public class StrategyMonitorServiceImpl implements StrategyMonitorService {
 
     private final TelegramService telegramService;
 
-    @KafkaListener(topics = "strategy", groupId = "price-monitor-group")
+    @KafkaListener(topics = "strategy", groupId = "strategy-monitor-group")
     public void onSendMessage(String message) {
         log.info("Received message: {}", message);
         telegramService.sendMessage(message);

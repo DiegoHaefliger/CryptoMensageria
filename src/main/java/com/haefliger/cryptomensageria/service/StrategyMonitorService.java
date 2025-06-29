@@ -6,5 +6,5 @@ package com.haefliger.cryptomensageria.service;
  * Date 6/13/25
  */
 
-public interface PriceMonitorService {
+public interface StrategyMonitorService {
 }

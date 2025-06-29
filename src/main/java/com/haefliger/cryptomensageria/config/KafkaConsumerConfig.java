@@ -10,6 +10,5 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class KafkaConsumerConfig {
-    // Configuração padrão via application.yml
-    // Adicione beans customizados aqui se precisar de deserializadores customizados
+
 }
